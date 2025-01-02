@@ -1,0 +1,7 @@
+1. Agregar a la pila si el valor actual es igual o mayor que la parte superior de la pila
+2. De lo contrario, siga quitando de la pila hasta que envuentre un numero menor o igual que el actual
+3. Calcule el area cada vez que elimine
+	if(stack esta vacia)
+		area = input[top] * i
+	else
+		area = input[top] * (i - stack.top() - 1)
