@@ -1,0 +1,31 @@
+int cardinal_conjunto(vector<int> v, int pos_ini, int k)
+{
+	int c = 0;
+	map<int, bool> mapa;
+
+	for(int i = pos_ini; i < v.size(); i++)
+	{
+		if(mapa[v[i]])
+			break;
+		mapa[k * v[i]] = true;
+		c++;
+	}
+	return c;
+}
+int low = 0, high = n - 1, aux = 0;
+
+	while(high - low > 1)
+	{
+		int mid = (low + high) / 2;
+		int card = cardinal_conjunto(v, mid, k);
+		if(card <= aux)
+		{
+			low = mid;
+			aux = card;
+		}
+		else
+		{
+			high = mid;
+			aux = card;
+		}
+	}
