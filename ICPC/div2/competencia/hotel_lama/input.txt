@@ -1,0 +1,6 @@
+4
+abba
+aabb
+bbba
+baba
+

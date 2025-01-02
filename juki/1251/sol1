@@ -1,0 +1,54 @@
+ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	freopen("input.txt", "r", stdin);
+
+	int N, s, t, cnt, sum;
+
+	cin >> N;
+
+	while(N--)
+	{
+		cnt = sum = 0;
+
+		cin >> s >> t;
+
+		map<int, bool> mapa;
+		map<int, bool>::iterator itr;
+
+		for(int i = 1; i <= 9; i++)
+		{
+			if(sum != s and cnt < t)
+			{
+				sum += i;
+				mapa[i] = true;
+				cnt++;
+				if(sum > s)
+				{
+					mapa[abs(s - sum)] = false;
+					sum = sum - abs(s - sum);
+					cnt--;
+				}
+				else if(sum < s and cnt == t)
+				{
+					mapa[i] = false;
+					sum = sum - i;
+					cnt--;
+				}
+			}
+		}
+
+		//if(cnt == t)
+		//{
+			string out = "";
+
+			for(itr = mapa.begin(); itr != mapa.end(); ++itr)
+			{
+				if(itr->second)
+					out += to_string(itr->first) + " ";
+			}
+			cout << out.substr(0, out.size() - 1) << "\n";
+		//}
+		//else
+		//	cout << "No solution\n";
+	}
